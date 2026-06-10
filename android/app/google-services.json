@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "862442978495",
+    "firebase_url": "https://solarpumpsupervision-b0c86-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "solarpumpsupervision-b0c86",
+    "storage_bucket": "solarpumpsupervision-b0c86.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862442978495:android:2f84d6c1e63f46728e1a0a",
+        "android_client_info": {
+          "package_name": "com.example.smartpumpmonitor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQY4K05OjUB8xY63ZrR1B8uPopsyDbaR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
