@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'services/pompe_service.dart';
+import 'utils/notifications.dart';
 import 'router.dart';
 
 void main() async {
@@ -33,6 +34,7 @@ class _AppLoaderState extends State<AppLoader> {
           options: DefaultFirebaseOptions.currentPlatform,
         );
       }
+      await initNotifications();
       setState(() => _pret = true);
     } catch (e) {
       setState(() => _erreur = e.toString());

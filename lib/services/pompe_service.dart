@@ -5,6 +5,7 @@ import '../models/alarme.dart';
 import '../models/etat.dart';
 import '../models/gps_data.dart';
 import '../models/mesure.dart';
+import '../utils/notifications.dart';
 
 class PompeService extends ChangeNotifier {
   final DatabaseReference _db = FirebaseDatabase.instanceFor(
@@ -22,6 +23,8 @@ class PompeService extends ChangeNotifier {
   bool   get enMarche  => etat['en_marche'] ?? false;
   double get frequence => (etat['frequence'] ?? 0.0).toDouble();
 
+  bool _alarmeWasActive = false;
+
   void ecouterTout() {
     _db.child('pompe/mesures').onValue.listen((e) {
       mesures = Map<String, dynamic>.from(e.snapshot.value as Map? ?? {});
@@ -33,12 +36,23 @@ class PompeService extends ChangeNotifier {
     });
     _db.child('pompe/alarme').onValue.listen((e) {
       alarme = Map<String, dynamic>.from(e.snapshot.value as Map? ?? {});
+      _verifierAlarme();
       notifyListeners();
     });
     _db.child('pompe/gps').onValue.listen((e) {
       gps = Map<String, dynamic>.from(e.snapshot.value as Map? ?? {});
       notifyListeners();
     });
+  }
+
+  void _verifierAlarme() {
+    final active = alarme['active'] == true;
+    if (active && !_alarmeWasActive) {
+      final code = alarme['code'] ?? 'Alarme';
+      final desc = alarme['description'] ?? 'Défaut détecté sur la pompe';
+      showAlarmNotification(code, desc);
+    }
+    _alarmeWasActive = active;
   }
 
   // --- Streams typés pour les autres écrans ---
