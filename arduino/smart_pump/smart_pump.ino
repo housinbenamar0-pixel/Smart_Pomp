@@ -31,8 +31,8 @@ ModbusMaster   variateur;
 
 // ==================== CONFIGURATION ====================
 // WiFi
-const char* WIFI_SSID     = "VOTRE_WIFI";
-const char* WIFI_PASSWORD = "VOTRE_MOT_DE_PASSE";
+const char* WIFI_SSID     = "VOTRE_WIFI";       // ← Remplacer par le nom de votre réseau WiFi
+const char* WIFI_PASSWORD = "VOTRE_MOT_DE_PASSE"; // ← Remplacer par le mot de passe WiFi
 
 // GPRS Ooredoo Tunisie
 const char* APN      = "internet.ooredoo.tn";
@@ -41,7 +41,7 @@ const char* APN_PASS = "";
 
 // Firebase
 const char* FIREBASE_HOST   = "solarpumpsupervision-b0c86-default-rtdb.europe-west1.firebasedatabase.app";
-const char* FIREBASE_SECRET = "VOTRE_DATABASE_SECRET";
+const char* FIREBASE_SECRET = "";  // Vide si regles Firebase = public, sinon mettre le Database Secret
 const String FIREBASE_URL   = "https://solarpumpsupervision-b0c86-default-rtdb.europe-west1.firebasedatabase.app";
 
 // Proxy (pour GPRS sans SSL)
