@@ -31,8 +31,8 @@ ModbusMaster   variateur;
 
 // ==================== CONFIGURATION ====================
 // WiFi
-const char* WIFI_SSID     = "VOTRE_WIFI";       // ← Remplacer par le nom de votre réseau WiFi
-const char* WIFI_PASSWORD = "VOTRE_MOT_DE_PASSE"; // ← Remplacer par le mot de passe WiFi
+const char* WIFI_SSID     = "SpiderHome";
+const char* WIFI_PASSWORD = "11111111";
 
 // GPRS Ooredoo Tunisie
 const char* APN      = "internet.ooredoo.tn";
